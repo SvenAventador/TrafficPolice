@@ -1,0 +1,82 @@
+﻿<Application x:Class="TrafficPoliceProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TrafficPoliceProject"
+             StartupUri="Windows/InspectorMenuWindow.xaml">
+    <Application.Resources>
+        
+        <!--TextBlocks-->
+        
+        <Style 
+            x:Key="TitleText"
+            TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style 
+            x:Key="OtherText"
+            TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <!---->
+        
+        <!--TextBox-->
+        <Style
+            x:Key="TextBox"
+            TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <!---->
+        
+        <!--ComboBox-->
+        <Style
+            x:Key="ComboBox"
+            TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <!---->
+        
+        <!--Buttons-->
+        <Style
+            x:Key="Buttons"
+            TargetType="Button">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="Background" Value="#FF0084FF" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        <!---->
+        
+        <!--DataGrid-->
+        <Style
+            x:Key="DbGridModel"
+            TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <!---->
+         
+    </Application.Resources>
+</Application>

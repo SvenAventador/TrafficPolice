@@ -1,0 +1,20 @@
+﻿TrafficPoliceProject
+
+
+winexe
+C#
+.cs
+C:\Users\sasas\OneDrive\Рабочий стол\Internship\Project\TrafficPolice\TrafficPoliceProject\TrafficPoliceProject\obj\Debug\
+TrafficPoliceProject
+none
+false
+DEBUG;TRACE
+C:\Users\sasas\OneDrive\Рабочий стол\Internship\Project\TrafficPolice\TrafficPoliceProject\TrafficPoliceProject\App.xaml
+10-1070426189
+22007156629
+332014140405
+18-1512496441
+Pages\AddAndEditPages\AddAndEditCarPage.xaml;Pages\AddAndEditPages\AddAndEditDriversPage.xaml;Pages\AddAndEditPages\AddAndEditLicencePage.xaml;Pages\AddAndEditPages\AddRoadAccident.xaml;Pages\SeeObject\SeeCarPage.xaml;Pages\SeeObject\SeeDriverPage.xaml;Pages\SeeObject\SeeLicencesPage.xaml;Pages\SeeObject\SeeRoadAccidentPage.xaml;Windows\InspectorMenuWindow.xaml;Windows\MainWindow.xaml;
+
+True
+

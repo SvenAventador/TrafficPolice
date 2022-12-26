@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrafficPoliceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
+    <Property Name="ColorId" Type="Int32" Nullable="false" />
+    <Property Name="EngineTypeId" Type="Int32" Nullable="false" />
+    <Property Name="TypeOfDriveId" Type="Int32" Nullable="false" />
+    <Property Name="CarNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Color" Relationship="Self.FK_Car_Color" FromRole="Car" ToRole="Color" />
+    <NavigationProperty Name="Drivers" Relationship="Self.FK_Car_Drivers" FromRole="Car" ToRole="Drivers" />
+    <NavigationProperty Name="EngineType" Relationship="Self.FK_Car_EngineType" FromRole="Car" ToRole="EngineType" />
+    <NavigationProperty Name="TypeOfDrive" Relationship="Self.FK_Car_TypeOfDrive" FromRole="Car" ToRole="TypeOfDrive" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoriesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="LicencesCategories" Relationship="Self.FK_LicencesCategories_Categories" FromRole="Categories" ToRole="LicencesCategories" />
+  </EntityType>
+  <EntityType Name="Classification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ClassificationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="RoadAccident" Relationship="Self.FK_RoadAccident_Classification" FromRole="Classification" ToRole="RoadAccident" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="ColorId" />
+    </Key>
+    <Property Name="ColorId" Type="Int32" Nullable="false" />
+    <Property Name="ColorCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ColorName_RU_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsMetallic_" Type="Boolean" Nullable="false" />
+    <Property Name="Name_EN_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ColorName_EN_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_Color" FromRole="Color" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Middlename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PassportSerial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PassportNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressLife" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_Drivers" FromRole="Drivers" ToRole="Car" />
+    <NavigationProperty Name="Licences" Relationship="Self.FK_Licences_Drivers" FromRole="Drivers" ToRole="Licences" />
+    <NavigationProperty Name="RoadAccident" Relationship="Self.FK_RoadAccident_Drivers" FromRole="Drivers" ToRole="RoadAccident" />
+  </EntityType>
+  <EntityType Name="EngineType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EngineTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_EngineType" FromRole="EngineType" ToRole="Car" />
+  </EntityType>
+  <EntityType Name="Inspector">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginInspector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordInspector" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Licences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicenceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LicenceSerial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LicenceNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Drivers" Relationship="Self.FK_Licences_Drivers" FromRole="Licences" ToRole="Drivers" />
+    <NavigationProperty Name="LicencesCategories" Relationship="Self.FK_LicencesCategories_Licences" FromRole="Licences" ToRole="LicencesCategories" />
+    <NavigationProperty Name="RoadAccident" Relationship="Self.FK_RoadAccident_Licences" FromRole="Licences" ToRole="RoadAccident" />
+  </EntityType>
+  <EntityType Name="LicencesCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicencesId" Type="Int32" Nullable="false" />
+    <Property Name="CategoriesId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_LicencesCategories_Categories" FromRole="LicencesCategories" ToRole="Categories" />
+    <NavigationProperty Name="Licences" Relationship="Self.FK_LicencesCategories_Licences" FromRole="LicencesCategories" ToRole="Licences" />
+  </EntityType>
+  <EntityType Name="RegionCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="RegionName_EN_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RegionName_RU_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SubjectCode" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OKATO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ISO_3166_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoadAccident">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <Property Name="LicenceId" Type="Int32" Nullable="false" />
+    <Property Name="CrimeScene" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClassificationId" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfVictims" Type="Int32" Nullable="false" />
+    <Property Name="DateOfIncident" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TimeOfIncident" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Classification" Relationship="Self.FK_RoadAccident_Classification" FromRole="RoadAccident" ToRole="Classification" />
+    <NavigationProperty Name="Drivers" Relationship="Self.FK_RoadAccident_Drivers" FromRole="RoadAccident" ToRole="Drivers" />
+    <NavigationProperty Name="Licences" Relationship="Self.FK_RoadAccident_Licences" FromRole="RoadAccident" ToRole="Licences" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypeOfDrive">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TypeOfDrive1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_TypeOfDrive" FromRole="TypeOfDrive" ToRole="Car" />
+  </EntityType>
+  <Association Name="FK_Car_Color">
+    <End Role="Color" Type="Self.Color" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="ColorId" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="ColorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_Drivers">
+    <End Role="Drivers" Type="Self.Drivers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_EngineType">
+    <End Role="EngineType" Type="Self.EngineType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EngineType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="EngineTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_TypeOfDrive">
+    <End Role="TypeOfDrive" Type="Self.TypeOfDrive" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfDrive">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="TypeOfDriveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LicencesCategories_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LicencesCategories" Type="Self.LicencesCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LicencesCategories">
+        <PropertyRef Name="CategoriesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoadAccident_Classification">
+    <End Role="Classification" Type="Self.Classification" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RoadAccident" Type="Self.RoadAccident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoadAccident">
+        <PropertyRef Name="ClassificationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licences_Drivers">
+    <End Role="Drivers" Type="Self.Drivers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Licences" Type="Self.Licences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Licences">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoadAccident_Drivers">
+    <End Role="Drivers" Type="Self.Drivers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RoadAccident" Type="Self.RoadAccident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoadAccident">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LicencesCategories_Licences">
+    <End Role="Licences" Type="Self.Licences" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LicencesCategories" Type="Self.LicencesCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licences">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LicencesCategories">
+        <PropertyRef Name="LicencesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoadAccident_Licences">
+    <End Role="Licences" Type="Self.Licences" Multiplicity="1" />
+    <End Role="RoadAccident" Type="Self.RoadAccident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licences">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoadAccident">
+        <PropertyRef Name="LicenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrafficPoliceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Car" EntityType="Self.Car" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Classification" EntityType="Self.Classification" />
+    <EntitySet Name="Color" EntityType="Self.Color" />
+    <EntitySet Name="Drivers" EntityType="Self.Drivers" />
+    <EntitySet Name="EngineType" EntityType="Self.EngineType" />
+    <EntitySet Name="Inspector" EntityType="Self.Inspector" />
+    <EntitySet Name="Licences" EntityType="Self.Licences" />
+    <EntitySet Name="LicencesCategories" EntityType="Self.LicencesCategories" />
+    <EntitySet Name="RegionCode" EntityType="Self.RegionCode" />
+    <EntitySet Name="RoadAccident" EntityType="Self.RoadAccident" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TypeOfDrive" EntityType="Self.TypeOfDrive" />
+    <AssociationSet Name="FK_Car_Color" Association="Self.FK_Car_Color">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_Drivers" Association="Self.FK_Car_Drivers">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_EngineType" Association="Self.FK_Car_EngineType">
+      <End Role="EngineType" EntitySet="EngineType" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_TypeOfDrive" Association="Self.FK_Car_TypeOfDrive">
+      <End Role="TypeOfDrive" EntitySet="TypeOfDrive" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LicencesCategories_Categories" Association="Self.FK_LicencesCategories_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="LicencesCategories" EntitySet="LicencesCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoadAccident_Classification" Association="Self.FK_RoadAccident_Classification">
+      <End Role="Classification" EntitySet="Classification" />
+      <End Role="RoadAccident" EntitySet="RoadAccident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licences_Drivers" Association="Self.FK_Licences_Drivers">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="Licences" EntitySet="Licences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoadAccident_Drivers" Association="Self.FK_RoadAccident_Drivers">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="RoadAccident" EntitySet="RoadAccident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LicencesCategories_Licences" Association="Self.FK_LicencesCategories_Licences">
+      <End Role="Licences" EntitySet="Licences" />
+      <End Role="LicencesCategories" EntitySet="LicencesCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoadAccident_Licences" Association="Self.FK_RoadAccident_Licences">
+      <End Role="Licences" EntitySet="Licences" />
+      <End Role="RoadAccident" EntitySet="RoadAccident" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

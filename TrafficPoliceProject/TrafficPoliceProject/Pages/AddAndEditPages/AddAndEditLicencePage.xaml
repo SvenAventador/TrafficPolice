@@ -1,0 +1,134 @@
+﻿<Page x:Class="TrafficPoliceProject.Pages.AddAndEditPages.AddAndEditLicencePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TrafficPoliceProject.Pages.AddAndEditPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddAndEditLicencePage">
+
+    <Grid>
+
+        <!--#region Основная разметка-->
+        <Grid ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock 
+                Text="Дата получения прав:"
+                Style="{StaticResource OtherText}"
+                Grid.Row="0"
+                Grid.Column="0" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+
+            <DatePickerTextBox 
+                x:Name="dateTB"
+                Text="{Binding LicenceDate}"
+                Style="{StaticResource TextBox}"
+                Grid.Row="0"
+                Grid.Column="1" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+
+            <TextBlock 
+                Text="Серия прав:"
+                Style="{StaticResource OtherText}"
+                Grid.Row="1"
+                Grid.Column="0" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+
+            <!--#region Серия прав-->
+            <Grid
+                Grid.Row="1"
+                Grid.Column="1" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBox 
+                    x:Name="serial"            
+                    Text="{Binding LicenceSerial}"
+                    Style="{StaticResource TextBox}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="150"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"  />
+
+                <Button
+                    x:Name="GenerateSerial"
+                    Style="{StaticResource Buttons}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="Сгенерировать серию"
+                    Height="50"
+                    Click="GenerateSerial_Click" />
+
+            </Grid>
+            <!--#endregion-->
+
+            <TextBlock 
+                Text="Номер прав:"
+                Style="{StaticResource OtherText}"
+                Grid.Row="2"
+                Grid.Column="0" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+
+            <!--#region Номер прав-->
+            <Grid
+                Grid.Row="2"
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBox 
+                    x:Name="number"
+                    Text="{Binding LicenceNumber}"
+                    Style="{StaticResource TextBox}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="150"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"  />
+
+                <Button
+                    x:Name="GenerateNumber"
+                    Style="{StaticResource Buttons}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="Сгенерировать номер"
+                    Height="50"
+                    Click="GenerateNumber_Click" />
+
+            </Grid>
+            <!--#endregion-->
+
+            <Button
+                    x:Name="SaveData"
+                    Style="{StaticResource Buttons}"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Content="Сохранить данные"
+                    Height="50"
+                    Click="SaveData_Click" />
+
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</Page>

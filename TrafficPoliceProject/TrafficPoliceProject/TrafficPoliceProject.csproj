@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F30D9957-7D2C-4E27-9E6C-CBCEB143C43D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TrafficPoliceProject</RootNamespace>
+    <AssemblyName>TrafficPoliceProject</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Pages\AddAndEditPages\AddAndEditCarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddAndEditPages\AddAndEditDriversPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddAndEditPages\AddAndEditLicencePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddAndEditPages\AddRoadAccident.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SeeObject\SeeCarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SeeObject\SeeDriverPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SeeObject\SeeLicencesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SeeObject\SeeRoadAccidentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\InspectorMenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Manager.cs" />
+    <Compile Include="Classes\OtherFunctions.cs" />
+    <Compile Include="Entities\Car.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Categories.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Classification.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Color.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Drivers.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EngineType.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Inspector.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Licences.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LicencesCategories.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RegionCode.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RoadAccident.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TrafficPoliceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrafficPoliceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TrafficPoliceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TrafficPoliceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrafficPoliceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TypeOfDrive.cs">
+      <DependentUpon>TrafficPoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddAndEditPages\AddAndEditCarPage.xaml.cs">
+      <DependentUpon>AddAndEditCarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddAndEditPages\AddAndEditDriversPage.xaml.cs">
+      <DependentUpon>AddAndEditDriversPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddAndEditPages\AddAndEditLicencePage.xaml.cs">
+      <DependentUpon>AddAndEditLicencePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddAndEditPages\AddRoadAccident.xaml.cs">
+      <DependentUpon>AddRoadAccident.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SeeObject\SeeCarPage.xaml.cs">
+      <DependentUpon>SeeCarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SeeObject\SeeDriverPage.xaml.cs">
+      <DependentUpon>SeeDriverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SeeObject\SeeLicencesPage.xaml.cs">
+      <DependentUpon>SeeLicencesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SeeObject\SeeRoadAccidentPage.xaml.cs">
+      <DependentUpon>SeeRoadAccidentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\InspectorMenuWindow.xaml.cs">
+      <DependentUpon>InspectorMenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entities\TrafficPoliceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TrafficPoliceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\TrafficPoliceModel.edmx.diagram">
+      <DependentUpon>TrafficPoliceModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\DriversAvatars\001-happy-18.png" />
+    <Resource Include="Images\DriversAvatars\002-cool-5.png" />
+    <Resource Include="Images\DriversAvatars\003-happy-17.png" />
+    <Resource Include="Images\DriversAvatars\004-surprised-9.png" />
+    <Resource Include="Images\DriversAvatars\005-shocked-4.png" />
+    <Resource Include="Images\DriversAvatars\006-shocked-3.png" />
+    <Resource Include="Images\DriversAvatars\007-nervous-2.png" />
+    <Resource Include="Images\DriversAvatars\008-nervous-1.png" />
+    <Resource Include="Images\DriversAvatars\009-angry-6.png" />
+    <Resource Include="Images\DriversAvatars\010-drool.png" />
+    <Resource Include="Images\DriversAvatars\011-tired-2.png" />
+    <Resource Include="Images\DriversAvatars\012-tongue-7.png" />
+    <Resource Include="Images\DriversAvatars\013-tongue-6.png" />
+    <Resource Include="Images\DriversAvatars\014-tongue-5.png" />
+    <Resource Include="Images\DriversAvatars\015-smile-1.png" />
+    <Resource Include="Images\DriversAvatars\016-sleeping-1.png" />
+    <Resource Include="Images\DriversAvatars\017-nervous.png" />
+    <Resource Include="Images\DriversAvatars\018-surprised-8.png" />
+    <Resource Include="Images\DriversAvatars\019-tongue-4.png" />
+    <Resource Include="Images\DriversAvatars\020-happy-16.png" />
+    <Resource Include="Images\DriversAvatars\021-wink-1.png" />
+    <Resource Include="Images\DriversAvatars\022-laughing-2.png" />
+    <Resource Include="Images\DriversAvatars\023-laughing-1.png" />
+    <Resource Include="Images\DriversAvatars\024-sweat-1.png" />
+    <Resource Include="Images\DriversAvatars\025-happy-15.png" />
+    <Resource Include="Images\DriversAvatars\026-happy-14.png" />
+    <Resource Include="Images\DriversAvatars\027-laughing.png" />
+    <Resource Include="Images\DriversAvatars\028-happy-13.png" />
+    <Resource Include="Images\DriversAvatars\029-happy-12.png" />
+    <Resource Include="Images\DriversAvatars\030-crying-8.png" />
+    <Resource Include="Images\DriversAvatars\031-crying-7.png" />
+    <Resource Include="Images\DriversAvatars\032-bored.png" />
+    <Resource Include="Images\DriversAvatars\033-cool-4.png" />
+    <Resource Include="Images\DriversAvatars\034-angry-5.png" />
+    <Resource Include="Images\DriversAvatars\035-sad-14.png" />
+    <Resource Include="Images\DriversAvatars\036-angry-4.png" />
+    <Resource Include="Images\DriversAvatars\037-happy-11.png" />
+    <Resource Include="Images\DriversAvatars\038-angry-3.png" />
+    <Resource Include="Images\DriversAvatars\039-cyclops-1.png" />
+    <Resource Include="Images\DriversAvatars\040-surprised-7.png" />
+    <Resource Include="Images\DriversAvatars\041-thinking-2.png" />
+    <Resource Include="Images\DriversAvatars\042-book.png" />
+    <Resource Include="Images\DriversAvatars\043-baby-boy.png" />
+    <Resource Include="Images\DriversAvatars\044-dead-1.png" />
+    <Resource Include="Images\DriversAvatars\045-star.png" />
+    <Resource Include="Images\DriversAvatars\046-dubious.png" />
+    <Resource Include="Images\DriversAvatars\047-phone-call.png" />
+    <Resource Include="Images\DriversAvatars\048-moon.png" />
+    <Resource Include="Images\DriversAvatars\049-robot.png" />
+    <Resource Include="Images\DriversAvatars\050-flower.png" />
+    <Resource Include="Images\DriversAvatars\051-happy-10.png" />
+    <Resource Include="Images\DriversAvatars\052-happy-9.png" />
+    <Resource Include="Images\DriversAvatars\053-tired-1.png" />
+    <Resource Include="Images\DriversAvatars\054-ugly-3.png" />
+    <Resource Include="Images\DriversAvatars\055-tongue-3.png" />
+    <Resource Include="Images\DriversAvatars\056-vampire.png" />
+    <Resource Include="Images\DriversAvatars\057-music-1.png" />
+    <Resource Include="Images\DriversAvatars\058-popcorn.png" />
+    <Resource Include="Images\DriversAvatars\059-nurse.png" />
+    <Resource Include="Images\DriversAvatars\060-sad-13.png" />
+    <Resource Include="Images\DriversAvatars\061-graduated-1.png" />
+    <Resource Include="Images\DriversAvatars\062-happy-8.png" />
+    <Resource Include="Images\DriversAvatars\063-hungry.png" />
+    <Resource Include="Images\DriversAvatars\064-police.png" />
+    <Resource Include="Images\DriversAvatars\065-crying-6.png" />
+    <Resource Include="Images\DriversAvatars\066-happy-7.png" />
+    <Resource Include="Images\DriversAvatars\067-sun.png" />
+    <Resource Include="Images\DriversAvatars\068-father-2.png" />
+    <Resource Include="Images\DriversAvatars\069-happy-6.png" />
+    <Resource Include="Images\DriversAvatars\070-late.png" />
+    <Resource Include="Images\DriversAvatars\071-heart.png" />
+    <Resource Include="Images\DriversAvatars\072-sick-3.png" />
+    <Resource Include="Images\DriversAvatars\073-sad-12.png" />
+    <Resource Include="Images\DriversAvatars\074-in-love-10.png" />
+    <Resource Include="Images\DriversAvatars\075-shocked-2.png" />
+    <Resource Include="Images\DriversAvatars\076-happy-5.png" />
+    <Resource Include="Images\DriversAvatars\077-shocked-1.png" />
+    <Resource Include="Images\DriversAvatars\078-cool-3.png" />
+    <Resource Include="Images\DriversAvatars\079-crying-5.png" />
+    <Resource Include="Images\DriversAvatars\080-zombie.png" />
+    <Resource Include="Images\DriversAvatars\081-pain.png" />
+    <Resource Include="Images\DriversAvatars\082-cyclops.png" />
+    <Resource Include="Images\DriversAvatars\083-sweat.png" />
+    <Resource Include="Images\DriversAvatars\084-thief.png" />
+    <Resource Include="Images\DriversAvatars\085-sad-11.png" />
+    <Resource Include="Images\DriversAvatars\086-kiss-4.png" />
+    <Resource Include="Images\DriversAvatars\087-father-1.png" />
+    <Resource Include="Images\DriversAvatars\088-father.png" />
+    <Resource Include="Images\DriversAvatars\089-angel-1.png" />
+    <Resource Include="Images\DriversAvatars\090-happy-4.png" />
+    <Resource Include="Images\DriversAvatars\091-sad-10.png" />
+    <Resource Include="Images\DriversAvatars\092-outrage-1.png" />
+    <Resource Include="Images\DriversAvatars\093-ugly-2.png" />
+    <Resource Include="Images\DriversAvatars\094-ugly-1.png" />
+    <Resource Include="Images\DriversAvatars\095-scared.png" />
+    <Resource Include="Images\DriversAvatars\096-tongue-2.png" />
+    <Resource Include="Images\DriversAvatars\097-sad-9.png" />
+    <Resource Include="Images\DriversAvatars\098-nerd-9.png" />
+    <Resource Include="Images\DriversAvatars\099-greed-2.png" />
+    <Resource Include="Images\DriversAvatars\100-whistle.png" />
+    <Resource Include="Images\DriversAvatars\101-nerd-8.png" />
+    <Resource Include="Images\DriversAvatars\102-muted-4.png" />
+    <Resource Include="Images\DriversAvatars\103-in-love-9.png" />
+    <Resource Include="Images\DriversAvatars\104-in-love-8.png" />
+    <Resource Include="Images\DriversAvatars\105-kiss-3.png" />
+    <Resource Include="Images\DriversAvatars\106-in-love-7.png" />
+    <Resource Include="Images\DriversAvatars\107-ugly.png" />
+    <Resource Include="Images\DriversAvatars\108-nerd-7.png" />
+    <Resource Include="Images\DriversAvatars\109-nerd-6.png" />
+    <Resource Include="Images\DriversAvatars\110-crying-4.png" />
+    <Resource Include="Images\DriversAvatars\111-muted-3.png" />
+    <Resource Include="Images\DriversAvatars\112-nerd-5.png" />
+    <Resource Include="Images\DriversAvatars\113-kiss-2.png" />
+    <Resource Include="Images\DriversAvatars\114-greed-1.png" />
+    <Resource Include="Images\DriversAvatars\115-pirate-1.png" />
+    <Resource Include="Images\DriversAvatars\116-music.png" />
+    <Resource Include="Images\DriversAvatars\117-confused-2.png" />
+    <Resource Include="Images\DriversAvatars\118-nerd-4.png" />
+    <Resource Include="Images\DriversAvatars\119-greed.png" />
+    <Resource Include="Images\DriversAvatars\120-nerd-3.png" />
+    <Resource Include="Images\DriversAvatars\121-crying-3.png" />
+    <Resource Include="Images\DriversAvatars\122-cheering.png" />
+    <Resource Include="Images\DriversAvatars\123-surprised-6.png" />
+    <Resource Include="Images\DriversAvatars\124-muted-2.png" />
+    <Resource Include="Images\DriversAvatars\125-sick-2.png" />
+    <Resource Include="Images\DriversAvatars\126-graduated.png" />
+    <Resource Include="Images\DriversAvatars\127-angry-2.png" />
+    <Resource Include="Images\DriversAvatars\128-in-love-6.png" />
+    <Resource Include="Images\DriversAvatars\129-cool-2.png" />
+    <Resource Include="Images\DriversAvatars\130-confused-1.png" />
+    <Resource Include="Images\DriversAvatars\131-sad-8.png" />
+    <Resource Include="Images\DriversAvatars\132-nerd-2.png" />
+    <Resource Include="Images\DriversAvatars\133-birthday-boy.png" />
+    <Resource Include="Images\DriversAvatars\134-surprised-5.png" />
+    <Resource Include="Images\DriversAvatars\135-selfie.png" />
+    <Resource Include="Images\DriversAvatars\136-tongue-1.png" />
+    <Resource Include="Images\DriversAvatars\137-smart-1.png" />
+    <Resource Include="Images\DriversAvatars\138-smart.png" />
+    <Resource Include="Images\DriversAvatars\139-surprised-4.png" />
+    <Resource Include="Images\DriversAvatars\140-3d-glasses.png" />
+    <Resource Include="Images\DriversAvatars\141-in-love-5.png" />
+    <Resource Include="Images\DriversAvatars\142-sleeping.png" />
+    <Resource Include="Images\DriversAvatars\143-pirate.png" />
+    <Resource Include="Images\DriversAvatars\144-santa-claus.png" />
+    <Resource Include="Images\DriversAvatars\145-wink.png" />
+    <Resource Include="Images\DriversAvatars\146-in-love-4.png" />
+    <Resource Include="Images\DriversAvatars\147-tired.png" />
+    <Resource Include="Images\DriversAvatars\148-bang.png" />
+    <Resource Include="Images\DriversAvatars\149-baby.png" />
+    <Resource Include="Images\DriversAvatars\150-tongue.png" />
+    <Resource Include="Images\DriversAvatars\151-sick-1.png" />
+    <Resource Include="Images\DriversAvatars\152-outrage.png" />
+    <Resource Include="Images\DriversAvatars\153-injury.png" />
+    <Resource Include="Images\DriversAvatars\154-dead.png" />
+    <Resource Include="Images\DriversAvatars\155-rich-1.png" />
+    <Resource Include="Images\DriversAvatars\156-sick.png" />
+    <Resource Include="Images\DriversAvatars\157-angel.png" />
+    <Resource Include="Images\DriversAvatars\158-nerd-1.png" />
+    <Resource Include="Images\DriversAvatars\159-crying-2.png" />
+    <Resource Include="Images\DriversAvatars\160-crying-1.png" />
+    <Resource Include="Images\DriversAvatars\161-muted-1.png" />
+    <Resource Include="Images\DriversAvatars\162-surprised-3.png" />
+    <Resource Include="Images\DriversAvatars\163-crying.png" />
+    <Resource Include="Images\DriversAvatars\164-sad-7.png" />
+    <Resource Include="Images\DriversAvatars\165-cool-1.png" />
+    <Resource Include="Images\DriversAvatars\166-happy-3.png" />
+    <Resource Include="Images\DriversAvatars\167-thinking-1.png" />
+    <Resource Include="Images\DriversAvatars\168-muted.png" />
+    <Resource Include="Images\DriversAvatars\169-confused.png" />
+    <Resource Include="Images\DriversAvatars\170-happy-2.png" />
+    <Resource Include="Images\DriversAvatars\171-thinking.png" />
+    <Resource Include="Images\DriversAvatars\172-nerd.png" />
+    <Resource Include="Images\DriversAvatars\173-in-love-3.png" />
+    <Resource Include="Images\DriversAvatars\174-hypnotized.png" />
+    <Resource Include="Images\DriversAvatars\175-cool.png" />
+    <Resource Include="Images\DriversAvatars\176-shocked.png" />
+    <Resource Include="Images\DriversAvatars\177-easter.png" />
+    <Resource Include="Images\DriversAvatars\178-surprised-2.png" />
+    <Resource Include="Images\DriversAvatars\179-surprised-1.png" />
+    <Resource Include="Images\DriversAvatars\180-surprised.png" />
+    <Resource Include="Images\DriversAvatars\181-furious.png" />
+    <Resource Include="Images\DriversAvatars\182-sad-6.png" />
+    <Resource Include="Images\DriversAvatars\183-sad-5.png" />
+    <Resource Include="Images\DriversAvatars\184-sad-4.png" />
+    <Resource Include="Images\DriversAvatars\185-sad-3.png" />
+    <Resource Include="Images\DriversAvatars\186-angry-1.png" />
+    <Resource Include="Images\DriversAvatars\187-rich.png" />
+    <Resource Include="Images\DriversAvatars\188-sad-2.png" />
+    <Resource Include="Images\DriversAvatars\189-happy-1.png" />
+    <Resource Include="Images\DriversAvatars\190-sad-1.png" />
+    <Resource Include="Images\DriversAvatars\191-sad.png" />
+    <Resource Include="Images\DriversAvatars\192-smile.png" />
+    <Resource Include="Images\DriversAvatars\193-in-love-2.png" />
+    <Resource Include="Images\DriversAvatars\194-happy.png" />
+    <Resource Include="Images\DriversAvatars\195-kiss-1.png" />
+    <Resource Include="Images\DriversAvatars\196-in-love-1.png" />
+    <Resource Include="Images\DriversAvatars\197-in-love.png" />
+    <Resource Include="Images\DriversAvatars\198-kiss.png" />
+    <Resource Include="Images\DriversAvatars\199-angry.png" />
+    <Resource Include="Images\DriversAvatars\200-sleepy.png" />
+    <Resource Include="Images\Logotype\gibdd_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\TrafficPoliceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrafficPoliceModel.edmx</DependentUpon>
+      <LastGenOutput>TrafficPoliceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\TrafficPoliceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrafficPoliceModel.edmx</DependentUpon>
+      <LastGenOutput>TrafficPoliceModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

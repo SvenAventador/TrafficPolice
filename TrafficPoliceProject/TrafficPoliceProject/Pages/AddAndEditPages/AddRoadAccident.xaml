@@ -1,0 +1,96 @@
+﻿<Page x:Class="TrafficPoliceProject.Pages.AddAndEditPages.AddRoadAccident"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TrafficPoliceProject.Pages.AddAndEditPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddRoadAccident">
+
+    <Grid>
+
+        <!--#region Основная разметка-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <!--#region Место происшествия-->
+            <TextBlock
+                Grid.Column="0"
+                Style="{StaticResource OtherText}"
+                Text="Место происшествия:" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center" />
+
+            <TextBox
+                Grid.Column="1"
+                x:Name="placeTB"
+                Style="{StaticResource TextBox}"
+                Text="{Binding CrimeScene}" 
+                Width="300"
+                Height="40" />
+            <!--#endregion-->
+
+            <!--#region Классицифкация ДТП-->
+            <TextBlock
+                Grid.Column="0"
+                Grid.Row="1"
+                Style="{StaticResource OtherText}"
+                Text="Классификация ДТП:" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center" />
+
+            <ComboBox
+                Grid.Column="1"
+                Grid.Row="1"
+                x:Name="classBox"
+                Style="{StaticResource ComboBox}"
+                SelectedItem="{Binding ClassificationName}" 
+                DisplayMemberPath=""
+                Width="300"
+                Height="40" />
+            <!--#endregion-->
+
+            <!--#region Количество преступников-->
+            <TextBlock
+                Grid.Column="0"
+                Grid.Row="2"
+                Style="{StaticResource OtherText}"
+                Text="Количество жертв:" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center" />
+
+            <TextBox
+                Grid.Column="1"
+                Grid.Row="2"
+                x:Name="countTB"
+                Style="{StaticResource TextBox}"
+                Text="{Binding CrimeScene}" 
+                Width="300"
+                Height="40" />
+            <!--#endregion-->
+
+            <Button 
+                x:Name="SaveDataBtn"
+                Content="Сохранить данные"
+                Style="{StaticResource Buttons}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.ColumnSpan="2"
+                Grid.Row="4" 
+                Click="SaveDataBtn_Click" />
+
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</Page>

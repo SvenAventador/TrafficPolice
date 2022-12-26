@@ -1,0 +1,252 @@
+﻿<Page x:Class="TrafficPoliceProject.Pages.AddAndEditPages.AddAndEditCarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TrafficPoliceProject.Pages.AddAndEditPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddAndEditCarPage">
+
+    <Grid>
+
+        <!--#region Основная разметка-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--#region VIN номер-->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="VIN номер:" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <TextBox
+                    Grid.Column="1"
+                    x:Name="vinTB"
+                    Style="{StaticResource TextBox}"
+                    Text="{Binding VIN}" 
+                    Width="150"
+                    Height="40" />
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Марка машины-->
+            <Grid
+                Grid.Row="1"
+                Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="Марка машины:" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <TextBox
+                    Grid.Column="1"
+                    Style="{StaticResource TextBox}"
+                    x:Name="manTB"
+                    Text="{Binding Manufacturer}" 
+                    Width="150"
+                    Height="40" />
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Год машины-->
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="Модель машины::" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <TextBox
+                    Grid.Column="1"
+                    x:Name="modelTB"
+                    Style="{StaticResource TextBox}"
+                    Text="{Binding Model}" 
+                    Width="150"
+                    Height="40" />
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Год машины-->
+            <Grid
+                Grid.Row="3"
+                Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="Год машины:" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <TextBox
+                    Grid.Column="1"
+                    x:Name="yearTB"
+                    Style="{StaticResource TextBox}"
+                    Text="{Binding Year}" 
+                    Width="150"
+                    Height="40"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Вес машины-->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="Вес машины:" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <TextBox
+                    Grid.Column="1"
+                    x:Name="weightTB"
+                    Style="{StaticResource TextBox}"
+                    Text="{Binding Weight}" 
+                    Width="150"
+                    Height="40"/>
+            </Grid>
+            <!--#endregion-->
+            
+            <!--#region Цвет машины-->
+            <Grid
+                Grid.Row="1"
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="Цвет машины:" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <ComboBox
+                    Grid.Column="1"
+                    Style="{StaticResource ComboBox}"
+                    x:Name="colorTB"
+                    SelectedItem="{Binding Color}"
+                    DisplayMemberPath="ColorCode"
+                    Width="150"
+                    Height="40"/>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Тип машины-->
+            <Grid
+                Grid.Row="2"
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="Тип двигателя машины:" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <ComboBox
+                    Grid.Column="1"
+                    x:Name="engineTB"
+                    Style="{StaticResource ComboBox}"
+                    SelectedItem="{Binding EngineType}" 
+                    DisplayMemberPath="EngineTypeName"
+                    Width="150"
+                    Height="40"/>
+            </Grid>
+            <!--#endregion-->
+            
+            <!--#region Тип машины-->
+            <Grid
+                Grid.Row="3"
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="0"
+                    Style="{StaticResource OtherText}"
+                    Text="Тип машины:" 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+
+                <ComboBox
+                    Grid.Column="1"
+                    x:Name="typeTB"
+                    Style="{StaticResource ComboBox}"
+                    SelectedItem="{Binding TypeOfDrive}"
+                    DisplayMemberPath="TypeOfDrive1"
+                    Width="150"
+                    Height="40"/>
+            </Grid>
+            <!--#endregion-->
+            
+            <Button 
+                x:Name="SaveDataBtn"
+                Content="Сохранить данные"
+                Style="{StaticResource Buttons}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.ColumnSpan="2"
+                Grid.Row="4" 
+                Click="SaveDataBtn_Click_1" />
+
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</Page>

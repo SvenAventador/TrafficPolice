@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="488295e9273f4a0da596d6ad9bd16dda" Name="Diagram1">
+        <EntityTypeShape EntityType="TrafficPoliceModel.Car" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.Categories" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.Classification" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.Color" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.Drivers" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.EngineType" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.Inspector" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.Licences" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.LicencesCategories" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.RegionCode" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.RoadAccident" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrafficPoliceModel.TypeOfDrive" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_Car_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_Car_Drivers" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_Car_EngineType" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_Car_TypeOfDrive" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_LicencesCategories_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_RoadAccident_Classification" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_Licences_Drivers" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_RoadAccident_Drivers" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_LicencesCategories_Licences" ManuallyRouted="false" />
+        <AssociationConnector Association="TrafficPoliceModel.FK_RoadAccident_Licences" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
